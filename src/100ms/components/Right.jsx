@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { ChatView } from './components/chatView'
-import Ytlive from './components/Ytlive'
+import { ChatView } from './chatView'
+import Ytlive from './Ytlive'
 const Right = ({toggleChat,isChatOpen}) => {
-  const [tab, settab] = useState(1)
+  const [tab, settab] = useState(1) 
  
   return (
     <div  className={'w-[310px] h-full  py-4 flex flex-col '+(isChatOpen?"block":"hidden")}>

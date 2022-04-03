@@ -10,9 +10,10 @@ import {
   selectRoomState,
   HMSRoomState,
 } from "@100mslive/react-sdk";
-import FullPageProgress from "../../views/components/FullPageSpinner";
-import Right from "../../views/Right";
+import Right from "../../100ms/components/Right";
 import { RoleChangeRequestModal } from "../../100ms/components/RoleChangeRequestModal";
+import { Loading } from "@100mslive/react-ui";
+
 const Conference = () => {
   const navigate = useNavigate();
   const { loginInfo } = useContext(AppContext);
@@ -47,7 +48,7 @@ const Conference = () => {
   }, []);
 
   if (!isConnectedToRoom) {
-    return <FullPageProgress />;
+    return <Loading size={100} />;
   }
 
   return (

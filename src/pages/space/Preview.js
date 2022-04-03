@@ -40,6 +40,7 @@ const PreviewS = ({ getUserToken }) => {
       .catch(error => {
         setError(convertPreviewError(error));
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenEndpoint, urlRoomId, userRole, utoken, uid]);
 
   const onJoin = () => {
