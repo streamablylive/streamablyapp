@@ -62,15 +62,6 @@ export default App;
 
 const envPolicyConfig = JSON.parse(process.env.REACT_APP_POLICY_CONFIG || "{}");
 
-let appName = "";
-if (window.location.host.includes("localhost")) {
-  appName = "localhost";
-} else {
-  appName = window.location.host.split(".")[0];
-}
-
-document.title = `${appName}'s ${document.title}`;
-
 export function AuthStatusView({
   roomId = "",
   tokenEndpoint = defaultTokenEndpoint,

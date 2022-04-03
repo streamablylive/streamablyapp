@@ -12,7 +12,7 @@ import {
 import { ScreenShareView } from "./screenShareView";
 import { MainGridView } from "./mainGridView";
 import { ActiveSpeakerView } from "./ActiveSpeakerView";
-import { HLSView } from "./HLSView";
+// import { HLSView } from "./HLSView";
 // import { WhiteboardView } from "./WhiteboardView";
 import { AppContext } from "../components/context/AppContext";
 import { useWhiteboardMetadata } from "../plugins/whiteboard";
@@ -23,7 +23,7 @@ export const ConferenceMainView = ({ isChatOpen, toggleChat }) => {
   const peerSharing = useHMSStore(selectPeerScreenSharing);
   const peerSharingAudio = useHMSStore(selectPeerSharingAudio);
   const peerSharingPlaylist = useHMSStore(selectPeerSharingVideoPlaylist);
-  const { whiteboardOwner: whiteboardShared } = useWhiteboardMetadata();
+  // const { whiteboardOwner: whiteboardShared } = useWhiteboardMetadata();
   const roomState = useHMSStore(selectRoomState);
   useBeamAutoLeave();
   const hmsActions = useHMSActions();
@@ -31,7 +31,7 @@ export const ConferenceMainView = ({ isChatOpen, toggleChat }) => {
     audioPlaylist,
     videoPlaylist,
     uiViewMode,
-    HLS_VIEWER_ROLE,
+    // HLS_VIEWER_ROLE,
     showStatsOnTiles,
     isAudioOnly,
   } = useContext(AppContext);
@@ -54,11 +54,12 @@ export const ConferenceMainView = ({ isChatOpen, toggleChat }) => {
   }
 
   let ViewComponent;
-  if (localPeer.roleName === HLS_VIEWER_ROLE) {
-    ViewComponent = HLSView;
+  // if (localPeer.roleName === HLS_VIEWER_ROLE) {
+  //   ViewComponent = HLSView;
   // } else if (whiteboardShared) {
   //   ViewComponent = WhiteboardView;
-  } else if (
+  // } else 
+  if (
     (peerSharing && peerSharing.id !== peerSharingAudio?.id) ||
     peerSharingPlaylist
   ) {

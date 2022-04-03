@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { useMedia } from "react-use";
 import { Box, Flex, config as cssConfig } from "@100mslive/react-ui";
 import { FirstPersonDisplay } from "./FirstPersonDisplay";
-import { ChatView } from "./chatView";
+// import { ChatView } from "./chatView";
 import VideoList from "./VideoList";
 import { chatStyle } from "../../common/utils";
 import { Image } from "./Image";
@@ -67,7 +67,7 @@ export const GridCenterView = ({
           <FirstPersonDisplay />
         )}
       </Box>
-      {isChatOpen && hideSidePane && (
+      {/* {isChatOpen && hideSidePane && (
         <Flex
           css={{
             height: "75%",
@@ -84,7 +84,7 @@ export const GridCenterView = ({
         >
           <ChatView toggleChat={toggleChat} />
         </Flex>
-      )}
+      )} */}
     </Fragment>
   );
 };
@@ -121,7 +121,7 @@ export const GridSidePaneView = ({
           />
         )}
       </Flex>
-      {isChatOpen && (
+      {/* {isChatOpen && (
         <Flex
           align="end"
           css={{
@@ -137,7 +137,7 @@ export const GridSidePaneView = ({
         >
           <ChatView toggleChat={toggleChat} />
         </Flex>
-      )}
+      )} */}
     </Flex>
   );
 };

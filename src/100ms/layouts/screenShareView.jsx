@@ -10,7 +10,7 @@ import {
   selectScreenShareByPeerID,
 } from "@100mslive/react-sdk";
 import { Box, Flex, config as cssConfig } from "@100mslive/react-ui";
-import { ChatView } from "../components/chatView";
+// import { ChatView } from "../components/chatView";
 import { ScreenshareDisplay } from "../components/ScreenshareDisplay";
 import ScreenshareTile from "../components/ScreenshareTile";
 import VideoList from "../components/VideoList";
@@ -123,11 +123,11 @@ export const SidePane = ({
         showStatsOnTiles={showStats}
         isAudioOnly={isAudioOnly}
       />
-      <CustomChatView
+      {/* <CustomChatView
         isChatOpen={isChatOpen}
         toggleChat={toggleChat}
         totalPeers={totalPeers}
-      />
+      /> */}
     </Fragment>
   );
 };
@@ -195,28 +195,28 @@ const ScreenShareComponent = ({
   );
 };
 
-const CustomChatView = ({ isChatOpen, toggleChat, totalPeers }) => {
-  return (
-    isChatOpen && (
-      <Box
-        css={{
-          h: "45%",
-          flexShrink: 0,
-          "@lg": chatStyle,
-          "@ls": {
-            position: "absolute",
-            top: 0,
-            h: "100%",
-            minHeight: 300,
-            zIndex: 40,
-          },
-        }}
-      >
-        <ChatView toggleChat={toggleChat} />
-      </Box>
-    )
-  );
-};
+// const CustomChatView = ({ isChatOpen, toggleChat, totalPeers }) => {
+//   return (
+//     isChatOpen && (
+//       <Box
+//         css={{
+//           h: "45%",
+//           flexShrink: 0,
+//           "@lg": chatStyle,
+//           "@ls": {
+//             position: "absolute",
+//             top: 0,
+//             h: "100%",
+//             minHeight: 300,
+//             zIndex: 40,
+//           },
+//         }}
+//       >
+//         <ChatView toggleChat={toggleChat} />
+//       </Box>
+//     )
+//   );
+// };
 
 const SmallTilePeersView = ({
   smallTilePeers,

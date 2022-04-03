@@ -48,7 +48,11 @@ const Conference = () => {
   }, []);
 
   if (!isConnectedToRoom) {
-    return <Loading size={100} />;
+    return (
+      <div className="h-full w-full flex flex-col items-center justify-center">
+        <Loading size={100} />
+      </div>
+    );
   }
 
   return (

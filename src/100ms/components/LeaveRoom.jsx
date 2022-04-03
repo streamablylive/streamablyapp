@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState ,useContext} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   selectPermissions,
@@ -20,9 +20,11 @@ import {
   DialogContent,
   DialogRow,
 } from "../primitives/DialogContent";
+import { AppContext } from "./context/AppContext";
 
 export const LeaveRoom = () => {
-  const history = useNavigate();
+  const {setLoginInfo} = useContext(AppContext);
+  const navigate = useNavigate();
   const params = useParams();
   const [showEndRoomModal, setShowEndRoomModal] = useState(false);
   const [lockRoom, setLockRoom] = useState(false);
@@ -30,11 +32,8 @@ export const LeaveRoom = () => {
   const hmsActions = useHMSActions();
 
   const redirectToLeavePage = () => {
-    if (params.role) {
-      history.push("/leave/" + params.roomId + "/" + params.role);
-    } else {
-      history.push("/leave/" + params.roomId);
-    }
+      navigate('/h');
+      setLoginInfo({token:null,roomId:'',role:'',huid:null})
   };
 
   const leaveRoom = () => {
