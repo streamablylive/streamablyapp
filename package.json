@@ -46,6 +46,10 @@
     "webpack-cli": "^4.9.2",
     "webpack-manifest-plugin": "^4.1.1",
     "html-webpack-plugin": "^5.5.0",
+    "@babel/eslint-parser": "^7.17.0",
+    "mini-css-extract-plugin": "^2.5.2",
+    "postcss": "^8.4.5",
+    "postcss-loader": "^6.2.1",
     "esbuild-loader": "^2.18.0"
   },
   "scripts": {
@@ -69,13 +73,11 @@
     ]
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.17.0",
     "autoprefixer": "^10.4.2",
     "copy-webpack-plugin": "^10.2.1",
     "css-loader": "^6.5.1",
     "cssnano": "^5.0.15",
     "dotenv": "^14.2.0",
-    "esbuild-loader": "^2.18.0",
     "esbuild-plugin-postcss2": "0.1.1",
     "eslint": "^8.9.0",
     "eslint-config-react-app": "^7.0.0",
@@ -83,16 +85,10 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-webpack-plugin": "^3.1.1",
     "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.5.2",
-    "postcss": "^8.4.5",
-    "postcss-loader": "^6.2.1",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.15",
     "daisyui": "^1.19.0",
     "postcss-cli": "^9.1.0",
-    "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4",
-    "webpack-manifest-plugin": "^4.1.1"
+    "webpack-dev-server": "^4.7.4"
   }
 }
