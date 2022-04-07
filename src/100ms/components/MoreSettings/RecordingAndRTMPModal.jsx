@@ -13,7 +13,7 @@ import {
   DialogInput,
   DialogRow,
 } from "../../primitives/DialogContent";
-import { SKIP_PREVIEW } from "../../../common/constants";
+import { SKIP_PREVIEW } from "../../common/constants";
 import { ToastManager } from "../Toast/ToastManager";
 
 const defaultMeetingUrl =

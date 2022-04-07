@@ -14,7 +14,7 @@ import Invite from './Invite'
 // import Ytlive from './Ytlive'
 import Gridchange from './Gridchange'
 // import { AppContext } from "../context/AppContext";
-import { DEFAULT_HLS_VIEWER_ROLE } from "../../../common/constants";
+import { DEFAULT_HLS_VIEWER_ROLE } from "../../common/constants";
 
 const SpeakerTag = () => {
   const dominantSpeaker = useHMSStore(selectDominantSpeaker);

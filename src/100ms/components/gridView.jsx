@@ -4,7 +4,7 @@ import { Box, Flex, config as cssConfig } from "@100mslive/react-ui";
 import { FirstPersonDisplay } from "./FirstPersonDisplay";
 // import { ChatView } from "./chatView";
 import VideoList from "./VideoList";
-import { chatStyle } from "../../common/utils";
+import { chatStyle } from "../common/utils";
 import { Image } from "./Image";
 
 const MAX_TILES_FOR_MOBILE = 4;

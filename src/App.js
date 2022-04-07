@@ -17,7 +17,7 @@ import { AppContextProvider } from "./100ms/components/context/AppContext";
 import { Notifications } from "./100ms/components/Notifications";
 import { Confetti } from "./100ms/plugins/confetti";
 import ToastContainer from "./100ms/components/Toast/ToastContainer";
-import { shadeColor } from "./common/utils";
+import { shadeColor } from "./100ms/common/utils";
 import { FeatureFlags } from "./services/FeatureFlags";
 // import { KeyboardHandler } from "./100ms/components/Input/KeyboardInputManager";
 

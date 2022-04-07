@@ -20,7 +20,7 @@ import {
 import { PlaylistItem } from "./PlaylistItem";
 import { AudioPlaylistControls } from "./PlaylistControls";
 import { usePlaylist } from "../hooks/usePlaylist";
-import { isScreenshareSupported } from "../../../common/utils";
+import { isScreenshareSupported } from "../../common/utils";
 
 const BrowseAndPlayFromLocal = ({ type, actions }) => {
   return (

@@ -16,7 +16,7 @@ import { ActiveSpeakerView } from "./ActiveSpeakerView";
 // import { WhiteboardView } from "./WhiteboardView";
 import { AppContext } from "../components/context/AppContext";
 import { useWhiteboardMetadata } from "../plugins/whiteboard";
-import { useBeamAutoLeave } from "../../common/hooks";
+import { useBeamAutoLeave } from "../common/hooks";
 
 export const ConferenceMainView = ({ isChatOpen, toggleChat }) => {
   const localPeer = useHMSStore(selectLocalPeer);

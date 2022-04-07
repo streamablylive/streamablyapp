@@ -18,7 +18,7 @@ import { TrackNotifications } from "./TrackNotifications";
 import { TextWithIcon } from "./TextWithIcon";
 import { PeerNotifications } from "./PeerNotifications";
 import { ReconnectNotifications } from "./ReconnectNotifications";
-import { getMetadata } from "../../../common/utils";
+import { getMetadata } from "../../common/utils";
 
 export function Notifications() {
   const notification = useHMSNotifications();

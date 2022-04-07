@@ -14,8 +14,8 @@ import {
 import {
   DEFAULT_HLS_ROLE_KEY,
   DEFAULT_HLS_VIEWER_ROLE,
-} from "../../../common/constants";
-import { getMetadata } from "../../../common/utils";
+} from "../../common/constants";
+import { getMetadata } from "../../common/utils";
 
 const AppContext = React.createContext(null);
 

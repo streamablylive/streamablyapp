@@ -4,7 +4,7 @@ import {
   selectPeerByCondition,
 } from "@100mslive/react-sdk";
 import { useCallback, useEffect, useMemo } from "react";
-import { getMetadata } from "../../../common/utils";
+import { getMetadata } from "../../common/utils";
 import { useMyMetadata } from "../../components/hooks/useMetadata";
 import { FeatureFlags } from "../../../services/FeatureFlags";
 import { useCommunication } from "./useCommunication";

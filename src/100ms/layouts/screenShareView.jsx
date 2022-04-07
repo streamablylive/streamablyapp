@@ -14,9 +14,9 @@ import { Box, Flex, config as cssConfig } from "@100mslive/react-ui";
 import { ScreenshareDisplay } from "../components/ScreenshareDisplay";
 import ScreenshareTile from "../components/ScreenshareTile";
 import VideoList from "../components/VideoList";
-import VideoTile from "../components/VideoTile";
+import VideoTile from "../components/VideoTile"; 
 import { VideoPlayer } from "../components/Playlist/VideoPlayer";
-import { chatStyle } from "../../common/utils";
+// import { chatStyle } from "../common/utils";
 
 export const ScreenShareView = ({
   showStats,

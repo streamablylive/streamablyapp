@@ -41,7 +41,10 @@
     "theme-change": "^2.0.2",
     "uuid4": "^2.0.2",
     "web-vitals": "^1.0.1",
-    "worker-timers": "^7.0.43"
+    "worker-timers": "^7.0.43",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-manifest-plugin": "^4.1.1"
   },
   "scripts": {
     "prebuild": "rm -rf build",

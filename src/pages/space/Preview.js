@@ -5,7 +5,7 @@ import { Loading, styled } from "@100mslive/react-ui";
 import Preview from "../../100ms/components/Preview";
 import { ErrorDialog } from "../../100ms/primitives/DialogContent";
 import { AppContext } from "../../100ms/components/context/AppContext";
-import { SKIP_PREVIEW } from "../../common/constants";
+import { SKIP_PREVIEW } from "../../100ms/common/constants";
 import getToken from "../../services/tokenService";
 import { useIdentityContext } from "react-netlify-identity";
 

@@ -10,7 +10,7 @@ import {
 } from "@100mslive/react-sdk";
 import { ArrowRightIcon, CheckIcon, PersonIcon } from "@100mslive/react-icons";
 import { Dropdown, Text, config } from "@100mslive/react-ui";
-import { arrayIntersection } from "../../../common/utils";
+import { arrayIntersection } from "../../common/utils";
 import { AppContext } from "../context/AppContext";
 import { ToastManager } from "../Toast/ToastManager";
 

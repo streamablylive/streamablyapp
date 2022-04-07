@@ -30,7 +30,7 @@ import { ToggleWhiteboard } from "../plugins/whiteboard";
 import { VirtualBackground } from "../plugins/VirtualBackground";
 import { useMyMetadata } from "./hooks/useMetadata";
 import { FeatureFlags } from "../../services/FeatureFlags";
-import { isScreenshareSupported } from "../../common/utils";
+import { isScreenshareSupported } from "../common/utils";
 import { Playlist } from "../components/Playlist/Playlist";
 import { TranscriptionButton } from "../plugins/transcription";
 import Newwindows from "../../components/Newwindow";
