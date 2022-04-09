@@ -10,6 +10,7 @@ import {
   selectRoomState,
   HMSRoomState,
 } from "@100mslive/react-sdk";
+import FullPageProgress from "../../100ms/components/FullPageSpinner";
 import Right from "../../100ms/components/Right";
 import { RoleChangeRequestModal } from "../../100ms/components/RoleChangeRequestModal";
 import { Loading } from "@100mslive/react-ui";
@@ -44,7 +45,7 @@ const Conference = () => {
       console.log(roomId);
     }
 
-    //eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!isConnectedToRoom) {
