@@ -131,38 +131,14 @@ const Chat = ({ isChatOpen, toggleChat }) => {
 export const Footer = ({ isChatOpen, toggleChat }) => {
   const [w, setw] = useState(false)
   return (
-    <Flex
-      justify="between"
-      align="center"
-      css={{
-        padding: "$2",
-        position: "relative",
-        height: "100%",
-        backgroundColor:"black",
-        borderTopLeftRadius:"30px",
-        borderTopRightRadius:"30px",
-        "@md": { flexWrap: "wrap" },
-      }}
-    >
-      <Flex
-        align="center"
-        css={{
-          position: "absolute",
-          left: "$7",
-          "@md": {
-            position: "unset",
-            justifyContent: "center",
-            w: "100%",
-            p: "$4 0",
-          },
-        }}
-      >
+    <div className="flex flex-col md:flex-row justify-between items-center p-2 relative h-full bg-black rounded-t-lg md:flex-wrap">
+      <div className="md:flex items-center py-2 hidden ">
         <ScreenshareAudio />
         <Playlist type={HMSPlaylistType.audio} />
         <Playlist type={HMSPlaylistType.video} />
         {FeatureFlags.enableWhiteboard ? <ToggleWhiteboard /> : null}
         <LeftDivider />
-        <VirtualBackground />
+        <MoreSettings />
         <NoiseSuppression />
         <Tooltip title="Streamers mode">
           <div className="flex flex-col items-center ml-2">
@@ -170,48 +146,21 @@ export const Footer = ({ isChatOpen, toggleChat }) => {
           </div>
         </Tooltip>
         {FeatureFlags.enableTranscription && <TranscriptionButton />}
-        <Flex
-          align="center"
-          css={{
-            display: "none",
-            "@md": {
-              display: "flex",
-            },
-          }}
-        >
-          <VerticalDivider space={4} />
-          <MetaActions />
-        </Flex>
-      </Flex>
-      <Flex align="center" justify="center" css={{ w: "100%" }}>
+      </div>
+      <div className="flex items-center justify-center">
         <AudioVideoToggle />
-        <Screenshare css={{ mx: "$4" }} />
-        <MoreSettings />
-        <VerticalDivider space={4} />
-        <LeaveRoom />
-        <Flex
-          align="center"
-          css={{ display: "none", "@md": { display: "flex", ml: "$4" } }}
-        >
-          <Chat isChatOpen={isChatOpen} toggleChat={toggleChat} />
-        </Flex>
-      </Flex>
-      <Flex
-        align="center"
-        css={{
-          position: "absolute",
-          right: "$7",
-          "@md": {
-            display: "none",
-          },
-        }}
-      >
+          <Screenshare css={{ mx: "$4" }} />
+          <VirtualBackground />
+          <VerticalDivider space={4} />
+          <LeaveRoom />
+      </div>
+      <div className="flex items-center">
         <MetaActions />
         <VerticalDivider space={4} />
         <Chat isChatOpen={isChatOpen} toggleChat={toggleChat} />
-      </Flex>
+      </div>
       {w?<Newwindows s={setw}/>:null}
-    </Flex>
+    </div>
   );
 };
 

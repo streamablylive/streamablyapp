@@ -13,7 +13,6 @@ import {
 import FullPageProgress from "../../100ms/components/FullPageSpinner";
 import Right from "../../100ms/components/Right";
 import { RoleChangeRequestModal } from "../../100ms/components/RoleChangeRequestModal";
-import { Loading } from "@100mslive/react-ui";
 
 const Conference = () => {
   const navigate = useNavigate();
@@ -51,7 +50,7 @@ const Conference = () => {
   if (!isConnectedToRoom) {
     return (
       <div className="h-full w-full flex flex-col items-center justify-center">
-        <Loading size={100} />
+        <FullPageProgress />
       </div>
     );
   }
@@ -69,7 +68,7 @@ const Conference = () => {
           <ConferenceMainView />
         </div>
         {!isHeadless && (
-          <div className="dark:bg-transparent px-4" style={{ height: "10%" }}>
+          <div className="dark:bg-transparent px-4 h-[14%] md:h-[10%]">
             <Footer isChatOpen={isChatOpen} toggleChat={toggleChat} />
           </div>
         )}

@@ -52,7 +52,7 @@ const PreviewS = ({ getUserToken }) => {
     return <ErrorDialog title={error.title}>{error.body}</ErrorDialog>;
   }
   return (
-    <div className="h-full w-full flex flex-col items-center justify-center">
+    <div className="h-full w-full flex flex-col items-center justify-center px-4">
       {token ? (
         <>
           <Preview

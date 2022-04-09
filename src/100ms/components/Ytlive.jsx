@@ -17,7 +17,7 @@ const Ytlive = () => {
     <div className='w-full h-full flex-grow'>
       {data==="not live"?<Reload/>: <iframe allowfullscreen="false" title='ytlive'
       frameborder="0" 
-      src={`https://www.youtube.com/live_chat?v=${data}&embed_domain=localhost`}
+      src={`https://www.youtube.com/live_chat?v=${data}&embed_domain=streamabaly.live`}
       width="100%" 
       height='100%'
       />}

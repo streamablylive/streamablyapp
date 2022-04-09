@@ -88,7 +88,7 @@ const Preview = ({ token, onJoin, env, skipPreview, initialName }) => {
   });
   
   return (
-    <div className="h-full w-full flex items-center justify-around ">
+    <div className="h-full w-full flex flex-col lg:flex-row items-center justify-around ">
       <PreviewTile name={name} />
       <div className="flex flex-col items-center ">
         <Text css={{ my: "1rem" }} variant="h4">
