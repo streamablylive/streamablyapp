@@ -117,10 +117,10 @@ const Pfp = () => {
   const nav = useNavigate();
   return (
     <div className="absolute top-4 right-10 inline-block mt-28 ">
-      <div className="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl dark:bg-gray-800">
+      <div className="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-black rounded-md shadow-xl ">
         <div
           href="#"
-          className="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="flex items-center p-3 -mt-2 text-sm transition-colors duration-200 transform  hover:text-white"
         >
           <img
             className="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
@@ -128,19 +128,17 @@ const Pfp = () => {
             alt="jane avatar"
           />
           <div className="mx-1">
-            <h1 className="text-sm font-semibold text-gray-700 dark:text-gray-200">
-              {name}
-            </h1>
-            <p className="text-xs text-gray-500 dark:text-gray-400">{email}</p>
+            <h1 className="text-sm font-semibold  text-gray-300">{name}</h1>
+            <p className="text-xs  text-gray-400">{email}</p>
           </div>
         </div>
 
-        <hr className="border-gray-200 dark:border-gray-700 " />
+        <hr className="border-gray-700  " />
 
         <div
           href="#"
           onClick={() => nav("/s")}
-          className="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="flex items-center p-3 text-smtext-gray-600 capitalize transition-colors duration-200 transform  text-gray-300 hover:text-white"
         >
           <svg
             className="w-5 h-5 mx-1"
@@ -164,7 +162,7 @@ const Pfp = () => {
         <div
           href="#"
           onClick={() => nav("/s")}
-          className="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="flex items-center p-3 text-sm  capitalize transition-colors duration-200 transform  text-gray-300 hover:text-white"
         >
           <svg
             className="w-5 h-5 mx-1"
@@ -181,12 +179,12 @@ const Pfp = () => {
           <span className="mx-1">Settings</span>
         </div>
 
-        <hr className="border-gray-200 dark:border-gray-700 " />
+        <hr className=" border-gray-700 " />
 
         <div
           onClick={() => identity.logoutUser()}
           style={{ cursor: "pointer" }}
-          className="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="flex items-center p-3 text-sm capitalize transition-colors duration-200 transform  text-gray-300  hover:text-white"
         >
           <svg
             className="w-5 h-5 mx-1"

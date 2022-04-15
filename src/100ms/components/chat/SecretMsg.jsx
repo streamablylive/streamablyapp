@@ -1,24 +1,23 @@
 import React,{useCallback} from 'react'
-import { useCustomEvent, useHMSActions } from '@100mslive/react-sdk';
+import { useCustomEvent } from '@100mslive/react-sdk';
 import {  IconButton } from "@100mslive/react-ui";
-import { SendIcon,TextboxIcon } from "@100mslive/react-icons";
+import { TextboxIcon } from "@100mslive/react-icons";
 
-const SecretMsg = () => {
-  const actions = useHMSActions();
+const SecretMsg = ({}) => {
 
   const onEvent = useCallback((msg) => {
-    console.log(msg); 
+    
   }, []);
 
   const { sendEvent } = useCustomEvent({
-    type: 'EMOJI_REACTION',
+    type: 'SECRET',
     onEvent,
   });
 
   return (
 
     <IconButton
-    onClick={() => sendEvent({emoji: "🚀"})}
+    onClick={() => sendEvent({msg:""})}
         css={{ ml: "auto", height: "max-content", mr: "$4" }}
       >
         <TextboxIcon />

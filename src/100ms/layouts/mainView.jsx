@@ -12,10 +12,11 @@ import {
 import { ScreenShareView } from "./screenShareView";
 import { MainGridView } from "./mainGridView";
 import { ActiveSpeakerView } from "./ActiveSpeakerView";
+import {GalleryView} from "./GalleryView";
 // import { HLSView } from "./HLSView";
 // import { WhiteboardView } from "./WhiteboardView";
 import { AppContext } from "../components/context/AppContext";
-import { useWhiteboardMetadata } from "../plugins/whiteboard";
+// import { useWhiteboardMetadata } from "../plugins/whiteboard";
 import { useBeamAutoLeave } from "../common/hooks";
 
 export const ConferenceMainView = ({ isChatOpen, toggleChat }) => {
@@ -66,6 +67,8 @@ export const ConferenceMainView = ({ isChatOpen, toggleChat }) => {
     ViewComponent = ScreenShareView;
   } else if (uiViewMode === "activeSpeaker") {
     ViewComponent = ActiveSpeakerView;
+  } else if (uiViewMode === "gallery") {
+    ViewComponent = GalleryView;
   } else {
     ViewComponent = MainGridView;
   }

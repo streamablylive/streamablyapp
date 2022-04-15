@@ -55,8 +55,6 @@ export const UISettings = ({ open, onOpenChange }) => {
     maxTileCount,
     subscribedNotifications,
     setSubscribedNotifications,
-    uiViewMode,
-    setuiViewMode,
     isAudioOnly,
     setIsAudioOnly,
   } = useContext(AppContext);
@@ -109,15 +107,6 @@ export const UISettings = ({ open, onOpenChange }) => {
           <Text variant="md" css={{ mb: "$4", fontWeight: "$semiBold" }}>
             View Layout
           </Text>
-          <DialogCheckbox
-            title="Active Speaker Mode"
-            id="activeSpeakerMode"
-            value={uiViewMode === "activeSpeaker"}
-            onChange={value => {
-              setuiViewMode(value ? "activeSpeaker" : "grid");
-            }}
-            css={{ margin: "0 0" }}
-          />
           <DialogCheckbox
             title="Audio Only Mode"
             id="audioOnlyMode"

@@ -3,7 +3,7 @@ import {  IconButton, styled } from "@100mslive/react-ui";
 import { useHMSActions } from "@100mslive/react-sdk";
 import { ToastManager } from "../Toast/ToastManager";
 import { SendIcon } from "@100mslive/react-icons";
-import SecretMsg from "./SecretMsg";
+// import SecretMsg from "./SecretMsg";
 
 const TextArea = styled("textarea", {
   width: "100%",
@@ -60,7 +60,7 @@ export const ChatFooter = ({ role, peerId, onSend, children }) => {
       >
         <SendIcon />
       </IconButton>
-      <SecretMsg/>
+      {/* <SecretMsg/> */}
     </div>
   );
 };

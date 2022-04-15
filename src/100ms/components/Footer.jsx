@@ -33,8 +33,8 @@ import { FeatureFlags } from "../../services/FeatureFlags";
 import { isScreenshareSupported } from "../common/utils";
 import { Playlist } from "../components/Playlist/Playlist";
 import { TranscriptionButton } from "../plugins/transcription";
-import Newwindows from "../../components/Newwindow";
-
+// import Newwindows from "../../components/Newwindow";
+import Green from "../../components/Green";
 const ScreenshareAudio = () => {
   const {
     amIScreenSharing,
@@ -159,10 +159,12 @@ export const Footer = ({ isChatOpen, toggleChat }) => {
         <VerticalDivider space={4} />
         <Chat isChatOpen={isChatOpen} toggleChat={toggleChat} />
       </div>
-      {w?<Newwindows s={setw}/>:null}
+      {w?<React.Fragment><Green/></React.Fragment>
+      :null}
     </div>
   );
 };
+{/* <Newwindows s={setw}/> */}
 
 const LeftDivider = () => {
   const allowedToPublish = useHMSStore(selectIsAllowedToPublish);
