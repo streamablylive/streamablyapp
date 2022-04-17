@@ -6,7 +6,7 @@ import {
 import { useCallback, useEffect, useMemo } from "react";
 import { getMetadata } from "../../common/utils";
 import { useMyMetadata } from "../../components/hooks/useMetadata";
-import { FeatureFlags } from "../../../services/FeatureFlags";
+// import { FeatureFlags } from "../../../services/FeatureFlags";
 import { useCommunication } from "./useCommunication";
 
 const isWhiteboardOwner = peer => {
@@ -49,7 +49,7 @@ export const useWhiteboardMetadata = () => {
 
   return {
     /** is whiteboard enabled for the room */
-    whiteboardEnabled: FeatureFlags.enableWhiteboard,
+    whiteboardEnabled: true,
     /** owner of the active whiteboard, can also be used to check if whiteboard is active */
     whiteboardOwner,
     amIWhiteboardOwner,

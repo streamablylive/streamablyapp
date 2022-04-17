@@ -31,10 +31,10 @@ import { VirtualBackground } from "../plugins/VirtualBackground";
 import { useMyMetadata } from "./hooks/useMetadata";
 import { FeatureFlags } from "../../services/FeatureFlags";
 import { isScreenshareSupported } from "../common/utils";
-import { Playlist } from "../components/Playlist/Playlist";
+// import { Playlist } from "../components/Playlist/Playlist";
 import { TranscriptionButton } from "../plugins/transcription";
-// import Newwindows from "../../components/Newwindow";
-import Green from "../../components/Green";
+import Newwindows from "../../components/Newwindow";
+// import Green from "../../components/Green";
 const ScreenshareAudio = () => {
   const {
     amIScreenSharing,
@@ -134,9 +134,7 @@ export const Footer = ({ isChatOpen, toggleChat }) => {
     <div className="flex flex-col md:flex-row justify-between items-center p-2 relative h-full bg-black rounded-t-lg md:flex-wrap">
       <div className="md:flex items-center py-2 hidden ">
         <ScreenshareAudio />
-        <Playlist type={HMSPlaylistType.audio} />
-        <Playlist type={HMSPlaylistType.video} />
-        {FeatureFlags.enableWhiteboard ? <ToggleWhiteboard /> : null}
+        <ToggleWhiteboard /> 
         <LeftDivider />
         <MoreSettings />
         <NoiseSuppression />
@@ -149,22 +147,21 @@ export const Footer = ({ isChatOpen, toggleChat }) => {
       </div>
       <div className="flex items-center justify-center">
         <AudioVideoToggle />
-          <Screenshare css={{ mx: "$4" }} />
-          <VirtualBackground />
-          <VerticalDivider space={4} />
-          <LeaveRoom />
+        <Screenshare css={{ mx: "$4" }} />
+        <VirtualBackground />
+        <LeftDivider />
+        <LeaveRoom />
       </div>
       <div className="flex items-center">
         <MetaActions />
         <VerticalDivider space={4} />
         <Chat isChatOpen={isChatOpen} toggleChat={toggleChat} />
       </div>
-      {w?<React.Fragment><Green/></React.Fragment>
+      {w?<React.Fragment><Newwindows s={setw}/></React.Fragment>
       :null}
     </div>
   );
 };
-{/* <Newwindows s={setw}/> */}
 
 const LeftDivider = () => {
   const allowedToPublish = useHMSStore(selectIsAllowedToPublish);

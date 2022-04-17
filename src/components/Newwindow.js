@@ -1,13 +1,11 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import {
   useHMSStore,
-  useHMSActions,
+  selectIsPeerVideoEnabled,
   selectPeers,
-  // selectIsSomeoneScreenSharing,
-  // selectPeerScreenSharing,
-  // selectPeerSharingVideoPlaylist,
-  selectCameraStreamByPeerID,
+  selectVideoTrackByPeerID,
 } from "@100mslive/react-sdk";
+import { Video } from "@100mslive/react-ui";
 // import { VideoPlayer } from "../100ms/components/Playlist/VideoPlayer";
 
 import NewWindow from "react-new-window";
@@ -19,23 +17,7 @@ const Newwindows = ({ s }) => {
   return (
     <>
       {peer.map(peer => (
-        <NewWindow
-          onUnload={() => s(false)}
-          key={peer.id}
-          features={{
-            width: 320,
-            height: 180,
-            toolbar: "no",
-            menubar: "no",
-            location: "no",
-            resizable: "no",
-            scrollbars: "no",
-            status: "no",
-          }}
-          title={peer.name}
-        >
-          <VideoTile peer={peer} />
-        </NewWindow>
+        <Tile key={peer.id} peer={peer} s={s} />
       ))}
       {/* 
       {isSomeoneScreenSharing ? (
@@ -62,29 +44,36 @@ const Newwindows = ({ s }) => {
 
 export default Newwindows;
 
-const VideoTile = ({ peer }) => {
-  const videoRef = useRef(null);
-  const hmsActions = useHMSActions();
-  const videoTrack = useHMSStore(selectCameraStreamByPeerID(peer.id));
-  useEffect(() => {
-    console.log(peer);
-    if (videoRef.current && videoTrack) {
-      if (videoTrack.enabled) {
-        hmsActions.attachVideo(videoTrack.id, videoRef.current);
-      } else {
-        hmsActions.detachVideo(videoTrack.id, videoRef.current);
-      }
-    }
-  }, [videoTrack, hmsActions, peer]);
-
+const Tile = ({ peer, s }) => {
+  const track = useHMSStore(selectVideoTrackByPeerID(peer.id));
+  const isVideoMuted = !useHMSStore(selectIsPeerVideoEnabled(peer.id));
+  const isVideoDegraded = track?.degraded;
+  if (isVideoMuted || !track) {
+    return null;
+  }
   return (
-    <video
-      height="100%"
-      width="100%"
-      ref={videoRef}
-      autoPlay
-      muted
-      playsInline
-    ></video>
+    <NewWindow
+      onUnload={() => s(false)}
+      key={peer.id}
+      features={{
+        width: 320,
+        height: 180,
+        toolbar: "no",
+        menubar: "no",
+        location: "no",
+        resizable: "no",
+        scrollbars: "no",
+        status: "no",
+      }}
+      title={peer.name}
+    >
+      <Video
+        trackId={track?.id}
+        attach={true}
+        mirror={peer?.isLocal && track?.source === "regular"}
+        degraded={isVideoDegraded}
+        data-testid="participant_video_tile"
+      />
+    </NewWindow>
   );
 };

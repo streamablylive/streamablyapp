@@ -15,6 +15,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@tldraw/tldraw": "^1.10.0",
     "autoprefixer": "^10.4.2",
     "axios": "^0.24.0",
     "bottleneck": "^2.19.5",

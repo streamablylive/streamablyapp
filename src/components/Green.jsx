@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect,useState } from "react";
 import {
   useHMSStore,
   useHMSActions,
@@ -8,10 +8,11 @@ import {
 import NewWindow from "react-new-window";
 import { Rnd } from 'react-rnd';
 
-const Green = () => {
+const Green = ({s}) => {
   const peer = useHMSStore(selectPeers);
   return (
     <NewWindow
+    onUnload={() => s(false)}
     features={{
       width: 1000,
       height: 650,
@@ -24,20 +25,19 @@ const Green = () => {
     title="capture screen"
   >
     <div className='w-full h-full bg-green-500'>
+      {peer.map(peer=> 
       <Rnd
         default={{
           x: 10,
           y: 10,
           width: 320,
-          height: 200,
+          height: 245,
         }}
+        style={{overflow:"hidden"}}
       >
-      <div className='bg-white h-full w-full '>
-        <VideoTile peer={peer[0]} />
-      </div>
-      </Rnd>
+        <Tile peer={peer} />
+      </Rnd>)}
     </div>
-
   </NewWindow>
   )
 }
@@ -45,12 +45,20 @@ const Green = () => {
 export default Green
 
 
+export const Tile = ({peer}) => {
+  return (
+    <div className=' h-fit w-fit '>
+      <VideoTile peer={peer} />
+    </div>
+  )
+}
+
+
 const VideoTile = ({ peer }) => {
   const videoRef = useRef(null);
   const hmsActions = useHMSActions();
   const videoTrack = useHMSStore(selectCameraStreamByPeerID(peer.id));
   useEffect(() => {
-    console.log(peer);
     if (videoRef.current && videoTrack) {
       if (videoTrack.enabled) {
         hmsActions.attachVideo(videoTrack.id, videoRef.current);
@@ -62,8 +70,6 @@ const VideoTile = ({ peer }) => {
 
   return (
     <video
-      height="100%"
-      width="100%"
       ref={videoRef}
       autoPlay
       muted
@@ -71,3 +77,5 @@ const VideoTile = ({ peer }) => {
     ></video>
   );
 };
+
+ 

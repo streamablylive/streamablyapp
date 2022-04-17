@@ -149,8 +149,8 @@ function AppRoutes() {
           <Route exact path="/r/room" element={<Conference />} />
           <Route exact path="/r" element={<Noid />} />
           <Route exact path="/s" element={<Settings />} />
-          <Route path="*" element={<Navigate to="/h" />} />
-          <Route path="*" render={<Navigate to="/h" />} />
+          <Route exact path="/" element={<Navigate to="/h" />} />
+          <Route exact path="*" element={<Navigate to="/h" />} />
         </Routes>
       </Layout>
     </Router>

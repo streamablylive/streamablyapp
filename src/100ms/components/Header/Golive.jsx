@@ -11,7 +11,7 @@ const Golive = () => {
     <React.Fragment>
       <div  onClick={()=>setOpen(true)}>
       {open ? <Content s={setOpen} />:
-        <button className='btn h-10'>
+        <button className='btn btn-xs h-10'>
           Go live
         </button>}
       </div>
