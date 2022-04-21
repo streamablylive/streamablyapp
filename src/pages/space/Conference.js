@@ -34,7 +34,7 @@ const Conference = () => {
 
   useEffect(() => {
     if (!roomId) {
-      navigate(`/h`);
+      navigate("/");
     }
     if (!(isConnectingToRoom || isConnectedToRoom)) {
       navigate("/r/preview");

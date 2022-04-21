@@ -10,14 +10,18 @@ const Sgeneraledit = () => {
     let cname = name === "" ? user.user_metadata.name : name;
     let cemail = email === "" ? user.email : email;
     let cwname = wname === "" ? user.user_metadata.web_name : wname;
-    await updateUser({
-      user_metadata: {
-        web_name: cwname,
-        full_name: cname,
-      },
-      email: cemail,
-    });
-    console.log(cname, cwname, cemail, "a");
+    let data = { data: {} };
+    if (user.user_metadata.full_name !== cname) {
+      data.data = { full_name: name };
+    }
+    if (user.user_metadata.web_name !== cwname) {
+      data.data = { ...data.data, web_name: wname };
+    }
+    if (user.email !== cemail) {
+      data.email = email;
+    }
+    console.log(data);
+    await updateUser(data);
   };
   return (
     <div className=" w-full h-full bg-gradient-to-br from-primary via-transparent to-primary rounded-lg p-0.5 ">

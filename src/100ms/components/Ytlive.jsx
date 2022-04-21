@@ -1,26 +1,24 @@
-import React from 'react'
+import { selectPeersByRole, useHMSStore } from '@100mslive/react-sdk'
+import React, { useEffect } from 'react'
 import  { mutate } from 'swr'
-// import { POST } from '../../apihelper/apihelper'
-// import { AppContext } from '../../100ms/components/context/AppContext'
+import { useMyMetadata } from './hooks/useMetadata'
 
-const Ytlive = () => {
-  // const {loginInfo}=useContext(AppContext)  
-  // const post=async()=>{
-  //   const b = (await POST("getyturl",{"uid":loginInfo.huid })).data
-  //   console.log(b)
-  //   return b
-  // }
+const Ytlivec = () => {
+  const {peerMetaData}=useMyMetadata()
+  const peer =useHMSStore(selectPeersByRole("host"))[0]
+  const link = peerMetaData(peer.id)?.isLive===false? 'Y1XKe0vuWfw':peerMetaData(peer.id)?.isLive
+  useEffect(()=>{
+    console.log(peer)
+  },[])
   
-  const {data} = {data:"Y1XKe0vuWfw"}
-  // const {data} = useSWR("/.netlify/functions/getyturl", ()=>post(),{refreshInterval :10000,revalidateIfStale: false,revalidateOnFocus: false,});
   return (
     <div className='w-full h-full flex-grow'>
-      {data==="not live"?<Reload/>: <iframe allowfullscreen="false" title='ytlive'
+      <iframe allowfullscreen="false" title='ytlive'
       frameborder="0" 
-      src={`https://www.youtube.com/live_chat?v=${data}&embed_domain=streamabaly.live`}
+      src={`https://www.youtube.com/live_chat?v=${link}&embed_domain=${window.location.hostname}`}
       width="100%" 
       height='100%'
-      />}
+      />
     </div>
   )
 }
@@ -35,5 +33,6 @@ export const Reload = () => {
   )
 }
 
+const Ytlive = React.memo(Ytlivec);
 
 export default Ytlive

@@ -76,7 +76,7 @@ const Tile = ({ peerId, showStatsOnTiles, isAudioOnly, width, height }) => {
           <StyledVideoTile.Info>{label}</StyledVideoTile.Info>
           {isAudioMuted ? (
             <StyledVideoTile.AudioIndicator data-testid="participant_audio_mute_icon">
-              <MicOffIcon />
+              <MicOffIcon width={20} height={20} /> 
             </StyledVideoTile.AudioIndicator>
           ) : null}
           {isMouseHovered && !peer?.isLocal ? (

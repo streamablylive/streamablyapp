@@ -23,6 +23,7 @@ import { getMetadata } from "../../common/utils";
 export function Notifications() {
   const notification = useHMSNotifications();
   const history = useNavigate();
+  const {setLoginInfo}=useContext(AppContext);
   const { subscribedNotifications, isHeadless, HLS_VIEWER_ROLE } =
     useContext(AppContext);
   useEffect(() => {
@@ -94,7 +95,7 @@ export function Notifications() {
           // goto leave for terminal if any action is not performed within 2secs
           // if network is still unavailable going to preview will throw an error
           setTimeout(() => {
-            history.push('/h');
+            history.push('/');
           }, 2000);
           return;
         }
@@ -137,14 +138,18 @@ export function Notifications() {
                 `Reason: ${notification.data.reason}`
               }`,
         });
-        setTimeout(() => {
-          history.push('/h');
-        }, 2000);
+        history('/');
+        setLoginInfo({
+          token: null,
+          username: "",
+          role: "",
+          roomId: "",
+          huid: "",})
         break;
       case HMSNotificationTypes.DEVICE_CHANGE_UPDATE:
         ToastManager.addToast({
           title: notification.message,
-        });
+        }); 
         break;
       default:
         break;

@@ -7,7 +7,6 @@ import {
   MusicIcon,
 } from "@100mslive/react-icons";
 import {
-  HMSPlaylistType,
   selectUnreadHMSMessagesCount,
   selectIsAllowedToPublish,
   useHMSStore,
@@ -75,6 +74,7 @@ const ScreenshareAudio = () => {
     </Fragment>
   );
 };
+
 
 export const MetaActions = () => {
   const { isHandRaised, isBRBOn, toggleHandRaise, toggleBRB } = useMyMetadata();

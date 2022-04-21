@@ -143,14 +143,13 @@ function AppRoutes() {
       {/* <KeyboardHandler /> */}
       <Layout>
         <Routes>
-          <Route exact path="/h" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/f" element={<Friends />} />
           <Route exact path="/r/preview" element={<PreviewS />} />
           <Route exact path="/r/room" element={<Conference />} />
           <Route exact path="/r" element={<Noid />} />
           <Route exact path="/s" element={<Settings />} />
-          <Route exact path="/" element={<Navigate to="/h" />} />
-          <Route exact path="*" element={<Navigate to="/h" />} />
+          <Route exact path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>
     </Router>

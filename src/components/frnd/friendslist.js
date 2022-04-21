@@ -108,7 +108,7 @@ const Friendslist = () => {
             } else if (list.name.toLowerCase().includes(query.toLowerCase())) {
               return list;
             }
-            return [];
+            return null;
           })
           .map(a => (
             <Frnd data={a} o={open} of={setopen} key={a.uid} />

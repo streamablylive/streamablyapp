@@ -70,8 +70,8 @@
     "worker-timers": "^7.0.43"
   },
   "scripts": {
-    "prebuild": "set A=a",
-    "build": "set NODE_ENV=production & webpack",
+    "prebuild": "rm -rf build",
+    "build": "NODE_ENV=production webpack",
     "start": "webpack serve",
     "esbuild": "node ../../scripts/build-webapp",
     "format": "prettier -w src",

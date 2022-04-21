@@ -32,7 +32,7 @@ export const LeaveRoom = () => {
   const hmsActions = useHMSActions();
 
   const redirectToLeavePage = () => {
-      navigate('/h');
+      navigate('/');
       setLoginInfo({token:null,roomId:'',role:'',huid:null})
   };
 

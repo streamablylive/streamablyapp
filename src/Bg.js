@@ -26,9 +26,11 @@ const Navbar = () => {
         <div
           className={
             "  sm:ml-0 mt-0 sm:mt-4 px-4 sm:px-0 sm:py-2  w-18 sm:w-full h-full sm:h-10 flex items-center justify-center border-t-4 sm:border-r-4 sm:border-t-0 text-white  " +
-            (tab === "h" ? " border-white " : "  border-transparent")
+            (window.location.pathname === "/"
+              ? " border-white "
+              : "  border-transparent")
           }
-          onClick={() => change("h")}
+          onClick={() => change("")}
         >
           <AiFillHome size="25px" />
         </div>

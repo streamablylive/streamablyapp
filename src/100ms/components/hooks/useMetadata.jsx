@@ -11,6 +11,7 @@ export const useMyMetadata = () => {
   const metaData = useHMSStore(selectPeerMetadata(localPeerId));
   let isHandRaised = metaData?.isHandRaised || false;
   let isBRBOn = metaData?.isBRBOn || false; // BRB = be right back
+  let isLive = metaData?.isLive || false;
 
   const update = async updatedFields => {
     try {
@@ -19,6 +20,10 @@ export const useMyMetadata = () => {
       console.error("failed to update metadata ", metaData, updatedFields);
     }
   };
+
+  const peerMetaData=(peerId)=>{
+    return useHMSStore(selectPeerMetadata(peerId))
+  }
 
   const toggleHandRaise = async () => {
     isHandRaised = !isHandRaised;
@@ -32,12 +37,20 @@ export const useMyMetadata = () => {
     await update({ isHandRaised, isBRBOn });
   };
 
+  const toggleLive = async (url) => {
+    isLive = url;
+    await update({ isLive });
+  }
+
   return {
     isHandRaised,
     isBRBOn,
+    isLive,
     metaData,
     updateMetaData: update,
+    peerMetaData,
     toggleHandRaise,
     toggleBRB,
+    toggleLive
   };
 };
