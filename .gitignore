@@ -14,7 +14,7 @@
 .vscode
 .cache
 
-.env
+
 
 # misc
 .DS_Store

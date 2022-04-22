@@ -30,16 +30,17 @@ const PreviewS = ({ getUserToken }) => {
   useEffect(() => {
     if (!urlRoomId) {
       navigate("/r");
+    } else {
+      const getTokenFn = () => getToken(utoken, uid, userRole, urlRoomId);
+      getTokenFn()
+        .then(token => {
+          setToken(token);
+          setLoginInfo({ token: token });
+        })
+        .catch(error => {
+          setError(convertPreviewError(error));
+        });
     }
-    const getTokenFn = () => getToken(utoken, uid, userRole, urlRoomId);
-    getTokenFn()
-      .then(token => {
-        setToken(token);
-        setLoginInfo({ token: token });
-      })
-      .catch(error => {
-        setError(convertPreviewError(error));
-      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenEndpoint, urlRoomId, userRole, utoken, uid]);
 
