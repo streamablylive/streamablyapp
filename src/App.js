@@ -34,7 +34,7 @@ const defaultTokenEndpoint =
   "https://prod-in.100ms.live/hmsapi/streamit.app.100ms.live/";
 
 const App = () => {
-  const url = "https://streamably.netlify.app";
+  const url = "https://streamablyapp.netlify.app";
 
   return (
     <IdentityContextProvider url={url}>
