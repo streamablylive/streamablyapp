@@ -14,7 +14,6 @@ const Gridchange = () => {
         active={uiViewMode !== "gallery"}
         onClick={()=> setuiViewMode("gallery")}
         shape="circle"
-        key="gridChange"
         data-testid="audio_btn"
       >
         <BsFillGrid3X2GapFill/>
@@ -23,7 +22,6 @@ const Gridchange = () => {
         active={uiViewMode !== "activeSpeaker"}
         onClick={()=> setuiViewMode("activeSpeaker")}
         shape="circle"
-        key="gridChange2"
         data-testid="audio_btn"
       >
         <BsFillGrid1X2Fill/>
@@ -32,7 +30,6 @@ const Gridchange = () => {
         active={uiViewMode !== "grid"}
         onClick={()=> setuiViewMode("grid")}
         shape="circle"
-        key="gridChange2"
         data-testid="audio_btn"
       >
         <HiViewGrid/>

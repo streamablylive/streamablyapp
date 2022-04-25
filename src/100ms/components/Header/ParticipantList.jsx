@@ -19,11 +19,14 @@ import {
   selectPermissions,
   useHMSStore,
   useParticipantList,
+  useHMSActions
 } from "@100mslive/react-sdk";
 import { RoleChangeModal } from "../RoleChangeModal";
 import { ConnectionIndicator } from "../Connection/ConnectionIndicator";
+import {MdAdd} from 'react-icons/md'
 
 export const ParticipantList = () => {
+  const hmsActions=useHMSActions()
   const { roles, participantsByRoles, peerCount, isConnected } =
     useParticipantList();
   const [open, setOpen] = useState(false);
@@ -32,6 +35,15 @@ export const ParticipantList = () => {
   if (peerCount === 0) {
     return null;
   }
+  const AddPeer=async(peer)=>{
+    console.log(peer)
+    await hmsActions.changeRole(
+      peer.id,
+      "participant",
+      true
+    ); 
+  }
+  
 
   return (
     <Fragment>
@@ -87,6 +99,7 @@ export const ParticipantList = () => {
                     canChangeRole={canChangeRole}
                     showActions={isConnected}
                     onParticipantAction={setSelectedPeerId}
+                    onAddAction={AddPeer}
                   />
                 </Dropdown.Group>
               );
@@ -125,6 +138,7 @@ const ParticipantListInARole = ({
   participants,
   showActions,
   onParticipantAction,
+  onAddAction,
   canChangeRole,
 }) => {
   return (
@@ -163,6 +177,10 @@ const ParticipantListInARole = ({
                 onSettings={() => {
                   onParticipantAction(peer.id);
                 }}
+                onAdd={() => {
+                  onAddAction(peer)
+                }}
+                Role={peer.roleName}
                 canChangeRole={canChangeRole}
               />
             )}
@@ -176,14 +194,19 @@ const ParticipantListInARole = ({
 /**
  * shows settings to change for a participant like changing their role
  */
-const ParticipantActions = React.memo(({ canChangeRole, onSettings }) => {
+const ParticipantActions = React.memo(({ canChangeRole, onSettings,onAdd,Role }) => {
   return (
     <Fragment>
       <Flex align="center">
         {canChangeRole && (
-          <IconButton onClick={onSettings}>
-            <SettingIcon />
-          </IconButton>
+          <div className="flex items-center h-full space-x-2 py-2">
+            {Role==='wait'&&<IconButton onClick={onAdd}>
+              <MdAdd />
+            </IconButton>}
+            <IconButton onClick={onSettings}>
+              <SettingIcon />
+            </IconButton>
+          </div>
         )}
       </Flex>
     </Fragment>
