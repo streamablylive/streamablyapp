@@ -8,7 +8,8 @@ const Login = () => {
   const [password, setpassword] = useState("");
   const [name, setName] = useState("");
   const [wname, setWname] = useState("");
-  const signup = () => {
+  const signup = e => {
+    e.preventDefault();
     const data = { web_name: wname, full_name: name };
     signupUser(email, password, data)
       .then(user => {
@@ -16,7 +17,8 @@ const Login = () => {
       })
       .catch(err => console.error(err));
   };
-  const hlogin = () => {
+  const hlogin = e => {
+    e.preventDefault();
     loginUser(email, password, true)
       .then(user => {
         console.log("Success! Logged in", user);
@@ -40,7 +42,10 @@ const Login = () => {
               {login ? "Log in to Streamably!" : "Create an Account"}
             </p>
           </div>
-          <div className="flex flex-col items-center">
+          <form
+            onClick={login ? hlogin : signup}
+            className="flex flex-col items-center"
+          >
             <input
               value={email}
               onChange={e => setEmail(e.target.value)}
@@ -77,10 +82,7 @@ const Login = () => {
                 className="input w-[250px] sm:w-[350px] mb-5 "
               />
             )}
-            <button
-              onClick={login ? hlogin : signup}
-              className="btn w-40 btn-primary rounded-lg"
-            >
+            <button type="submit" className="btn w-40 btn-primary rounded-lg">
               {login ? "Log in" : "Sign up"}
             </button>
             <p className="mt-5 mb-1 text-sx text-primary">Forgot Password?</p>
@@ -94,7 +96,7 @@ const Login = () => {
                 ? "New here? Create an account"
                 : "Already have an Account? Login"}
             </p>
-          </div>
+          </form>
         </div>
       </div>
     </>

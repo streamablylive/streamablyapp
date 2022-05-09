@@ -7,37 +7,21 @@ export const ScreenshareDisplay = () => {
   const hmsActions = useHMSActions();
 
   return (
-    <Flex
-      direction="column"
-      align="center"
-      justify="center"
-      css={{
-        position: "relative",
-        overflow: "hidden",
-        w: "37.5rem",
-        maxWidth: "80%",
-        h: "100%",
-        r: "$3",
-        m: "0 auto",
-        color: "$textPrimary",
-        bg: "$tileBg",
-        textAlign: "center",
-      }}
-    >
-      <ShareScreenIcon width={48} height={48} />
-      <Text variant="h5" css={{ m: "$8 0" }}>
-        You are sharing your screen
-      </Text>
-      <Button
-        variant="danger"
-        onClick={async () => {
-          await hmsActions.setScreenShareEnabled(false);
-        }}
-        data-testid="stop_screen_share_btn"
-      >
-        <CrossIcon width={18} height={18} />
-        &nbsp; Stop screen share
-      </Button>
-    </Flex>
+      <div className='flex flex-col justify-center items-center relative overflow-hidden w-[37.5rem] max-w-[80%] h-full right-3 mx-auto text-primary  text-center '>
+        <ShareScreenIcon width={48} height={48} />
+        <Text variant="h5" css={{ m: "$8 0" }}>
+          You are sharing your screen
+        </Text>
+        <Button
+          variant="danger"
+          onClick={async () => {
+            await hmsActions.setScreenShareEnabled(false);
+          }}
+          data-testid="stop_screen_share_btn"
+        >
+          <CrossIcon width={18} height={18} />
+          &nbsp; Stop screen share
+        </Button>
+      </div>
   );
 };

@@ -1,37 +1,23 @@
 import React from "react";
 import errorBgDark from "../images/error-bg-dark.svg";
-import errorBgLight from "../images/error-bg-light.svg";
-import { Flex, Box, Text, useTheme } from "@100mslive/react-ui";
+import { Text } from "@100mslive/react-ui";
 
 function ErrorPage({ error }) {
-  const themeType = useTheme().themeType;
   return (
-    <Flex
-      align="center"
-      justify="center"
-      css={{
-        size: "100%",
-        color: "$textPrimary",
-        backgroundColor: "$bgPrimary",
-      }}
-    >
-      <Box css={{ position: "relative", overflow: "hidden", r: "$3" }}>
+    <div className="flex justify-center items-center w-full h-full bg-primary text-primary">
+      <div className="relative overflow-hidden right-3">
         <img
-          src={themeType === "dark" ? errorBgDark : errorBgLight}
+          src={errorBgDark }
           alt="error background"
         />
-        <Flex
-          align="center"
-          direction="column"
-          css={{ position: "absolute", size: "100%", top: "33.33%", left: 0 }}
-        >
+        <div className="flex items-center flex-col  absolute h-full w-full top-[33.33%] left-0">
           <Text variant="h2">404</Text>
           <Text variant="h4" css={{ mt: "1.75rem" }}>
             {error}
           </Text>
-        </Flex>
-      </Box>
-    </Flex>
+        </div>
+      </div>
+    </div>
   );
 }
 

@@ -1,16 +1,32 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { PictureInPicture } from "./PIPManager";
 import {
   selectTracksMap,
   useHMSStore,
   useHMSActions,
+  selectLocalPeer,
+  selectDominantSpeaker,
   selectRemotePeers,
 } from "@100mslive/react-sdk";
+import { GridCenterView } from "../gridView";
 
 const ActivatedPIP = ({ setIsPipOn }) => {
   const hmsActions = useHMSActions();
   const tracksMap = useHMSStore(selectTracksMap);
   const remotePeers = useHMSStore(selectRemotePeers);
+  const localPeer = useHMSStore(selectLocalPeer);
+  let [activeSpeaker, setActiveSpeaker] = useState(localPeer);
+  let dominantSpeaker = useHMSStore(selectDominantSpeaker);
+
+  const peerFilter = dominantSpeaker => {
+    if (dominantSpeaker) {
+      setActiveSpeaker(dominantSpeaker);
+    }
+  };
+
+  useEffect(() => {
+    peerFilter(dominantSpeaker);
+  }, [dominantSpeaker]);
 
   useEffect(() => {
     const startPip = async () => {
@@ -33,7 +49,17 @@ const ActivatedPIP = ({ setIsPipOn }) => {
     });
   }, [tracksMap, remotePeers]);
 
-  return null;
+  return (
+    <div className="w-full h-full">
+      <GridCenterView
+        peers={[activeSpeaker]}
+        maxTileCount={1}
+        allowRemoteMute={false}
+        totalPeers={1}
+      />
+      ada
+    </div>
+  );
 };
 
 export default ActivatedPIP;

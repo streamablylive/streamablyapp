@@ -28,8 +28,8 @@ export const AudioVideoToggle = ({ compact = false }) => {
       {toggleAudio ? (
         <Tooltip
           title={`Turn ${isLocalAudioEnabled ? "off" : "on"} audio (${
-            isMacOS ? "⌘" : "ctrl"
-          } + d)`}
+            isMacOS ? "⌘" : "alt"
+          } + a)`}
         >
           <IconButton
             css={{ mr: compact ? "$2" : "$4" }}
@@ -50,8 +50,8 @@ export const AudioVideoToggle = ({ compact = false }) => {
       {toggleVideo ? (
         <Tooltip
           title={`Turn ${isLocalVideoEnabled ? "off" : "on"} video (${
-            isMacOS ? "⌘" : "ctrl"
-          } + e)`}
+            isMacOS ? "⌘" : "alt"
+          } + v)`}
         >
           <IconButton
             css={compact ? { ml: "$2" } : { mx: "$4" }}

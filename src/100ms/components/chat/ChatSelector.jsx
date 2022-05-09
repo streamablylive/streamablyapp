@@ -13,7 +13,6 @@ import {
   Input,
   Text,
   Tooltip,
-  Flex
 } from "@100mslive/react-ui";
 import { CheckIcon, CrossIcon } from "@100mslive/react-icons";
 import { ChatDotIcon } from "./ChatDotIcon";

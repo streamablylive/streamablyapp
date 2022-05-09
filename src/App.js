@@ -19,7 +19,7 @@ import { Confetti } from "./100ms/plugins/confetti";
 import ToastContainer from "./100ms/components/Toast/ToastContainer";
 import { shadeColor } from "./100ms/common/utils";
 import { FeatureFlags } from "./services/FeatureFlags";
-// import { KeyboardHandler } from "./100ms/components/Input/KeyboardInputManager";
+import { KeyboardHandler } from "./100ms/components/Input/KeyboardInputManager";
 
 import { HMSRoomProvider } from "@100mslive/react-sdk";
 import {
@@ -140,7 +140,7 @@ function AppRoutes() {
       <ToastContainer />
       <Notifications />
       <Confetti />
-      {/* <KeyboardHandler /> */}
+      <KeyboardHandler />
       <Layout>
         <Routes>
           <Route exact path="/f" element={<Friends />} />

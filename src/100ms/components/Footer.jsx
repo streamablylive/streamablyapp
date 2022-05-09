@@ -13,7 +13,6 @@ import {
   useScreenShare,
 } from "@100mslive/react-sdk";
 import {
-  Flex,
   IconButton,
   Tooltip,
   VerticalDivider,
@@ -80,7 +79,7 @@ export const MetaActions = () => {
   const { isHandRaised, isBRBOn, toggleHandRaise, toggleBRB } = useMyMetadata();
 
   return (
-    <Flex align="center">
+    <div className="flex items-center" >
       <Tooltip
         title={`${!isHandRaised ? "Raise" : "Unraise"} hand`}
         css={{ mx: "$4" }}
@@ -103,7 +102,7 @@ export const MetaActions = () => {
           <BrbIcon />
         </IconButton>
       </Tooltip>
-    </Flex>
+    </div>
   );
 };
 

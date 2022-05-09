@@ -1,35 +1,11 @@
 import React from "react";
-import { Flex, Box, Text } from "@100mslive/react-ui";
+import {  Text } from "@100mslive/react-ui";
 // import PlaceholderBg from "../images/first_person.png";
 
 export const FirstPersonDisplay = () => {
   return (
-    <Box
-      css={{
-        position: "relative",
-        overflow: "hidden",
-        w: "37.5rem",
-        maxWidth: "80%",
-        h: "100%",
-        r: "$3",
-        m: "0 auto",
-        backgroundImage: `/`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-      data-testid="first_person_img"
-    >
-      <Flex
-        align="center"
-        direction="column"
-        css={{
-          position: "absolute",
-          w: "100%",
-          top: "33.33%",
-          left: 0,
-          textAlign: "center",
-        }}
-      >
+    <div className="relative overflow-hidden w-[37.5rem] max-w-[80%] h-full right-3 mx-auto ">
+      <div className="flex items-center flex-col absolute w-full top-[33.33%] left-0 text-center">
         <Text color="white" variant="h4" css={{ "@md": { fontSize: "$md" } }}>
           Welcome!
         </Text>
@@ -47,7 +23,7 @@ export const FirstPersonDisplay = () => {
         >
           Sit back and relax till the others join.
         </Text>
-      </Flex>
-    </Box>
+      </div>
+    </div>
   );
 };

@@ -22,7 +22,7 @@ import { RoleChangeModal } from "../RoleChangeModal";
 import { ChangeNameModal } from "./ChangeNameModal";
 import { StatsForNerds } from "../StatsForNerds";
 import { MuteAllModal } from "./MuteAllModal";
-import { RecordingAndRTMPModal } from "./RecordingAndRTMPModal";
+// import { RecordingAndRTMPModal } from "./RecordingAndRTMPModal";
 import { FeatureFlags } from "../../../services/FeatureFlags";
 
 const hoverStyles = {
@@ -40,7 +40,7 @@ export const MoreSettings = () => {
   const localPeerId = useHMSStore(selectLocalPeerID);
   const [open, setOpen] = useState(false);
   const [showChangeNameModal, setShowChangeNameModal] = useState(false);
-  const [showRecordingModal, setShowRecordingModal] = useState(false);
+  // const [showRecordingModal, setShowRecordingModal] = useState(false);
   const [showMuteAll, setShowMuteAll] = useState(false);
   const [showDeviceSettings, setShowDeviceSettings] = useState(false);
   const [showStatsForNerds, setShowStatsForNerds] = useState(false);
@@ -82,7 +82,7 @@ export const MoreSettings = () => {
             css={hoverStyles}
             onClick={() => setShowSelfRoleChange(true)}
           />
-          {(permissions.streaming || permissions.recording) && (
+          {/* {(permissions.streaming || permissions.recording) && (
             <Dropdown.Item
               onClick={() => setShowRecordingModal(true)}
               css={hoverStyles}
@@ -93,7 +93,7 @@ export const MoreSettings = () => {
                 Streaming/Recording
               </Text>
             </Dropdown.Item>
-          )}
+          )} */}
           <FullScreenItem hoverStyles={hoverStyles} />
           {permissions.mute && (
             <Dropdown.Item
@@ -119,7 +119,7 @@ export const MoreSettings = () => {
             </Text>
           </Dropdown.Item>
           <Dropdown.Item
-            onClick={() => setShowDeviceSettings(true)}
+            onClick={() => setShowDeviceSettings(true)} 
             css={hoverStyles}
             data-testid="device_settings_btn"
           >
@@ -146,9 +146,9 @@ export const MoreSettings = () => {
       {showChangeNameModal && (
         <ChangeNameModal onOpenChange={setShowChangeNameModal} />
       )}
-      {showRecordingModal && (
+      {/* {showRecordingModal && (
         <RecordingAndRTMPModal onOpenChange={setShowRecordingModal} />
-      )}
+      )} */}
       {showDeviceSettings && (
         <Settings open onOpenChange={setShowDeviceSettings} />
       )}

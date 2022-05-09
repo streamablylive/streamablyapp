@@ -1,20 +1,18 @@
 import React, { Fragment } from "react";
 import { useMedia } from "react-use";
 import { Box, Flex, config as cssConfig } from "@100mslive/react-ui";
-import { FirstPersonDisplay } from "./FirstPersonDisplay";
 import VideoList from "./VideoList";
-import { Image } from "./Image";
 
 const MAX_TILES_FOR_MOBILE = 4;
 
 /**
  * the below variables are for showing webinar etc. related image if required on certain meeting urls
  */
-const webinarProps = JSON.parse(process.env.REACT_APP_WEBINAR_PROPS || "{}");
-const eventRoomIDs = webinarProps?.ROOM_IDS || [];
-const eventsImg = webinarProps?.IMAGE_FILE || ""; // the image to show in center
-// the link to navigate to when user clicks on the image
-const webinarInfoLink = webinarProps?.LINK_HREF || "https://100ms.live/";
+// const webinarProps = JSON.parse(process.env.REACT_APP_WEBINAR_PROPS || "{}");
+// const eventRoomIDs = webinarProps?.ROOM_IDS || [];
+// const eventsImg = webinarProps?.IMAGE_FILE || ""; // the image to show in center
+// // the link to navigate to when user clicks on the image
+// const webinarInfoLink = webinarProps?.LINK_HREF || "https://100ms.live/";
 
 // The center of the screen shows bigger tiles
 export const GridCenterView = ({
@@ -34,6 +32,7 @@ export const GridCenterView = ({
           "@md": { flex: "2 1 0" },
         }}
       >
+      
         {peers && peers.length > 0 ? (
           <VideoList
             showStatsOnTiles={showStatsOnTiles}
