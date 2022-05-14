@@ -1,16 +1,17 @@
 var jwt = require('jsonwebtoken');
 var uuid4 = require('uuid4');
 const { requestObj, responseObj } = require('./utils/helper');
-
+const { q, clientQuery } = require('./utils/faunaconnect');
 var app_access_key = '61543abf5aa184b310bc8b10';
 var app_secret = 'P5mqhBfojmH7NGDrBbeEz-CFlDU2Z6uDTlj9L0uJgKAd0jt4-iuyAcbjv2UFNFsgjRTzLB9hD2qgueg8AnLgoqCel3sTp58WBTW5KgS4ycbBFtsIj0wyXDwsi3eBWdGQoNfHFyboR53ntVF5XBoJQXecbZ0g09R1x_nKcl2wdto=';
 
 exports.handler = async (event, context) => {
   let data = requestObj(event.body);
   const claims = context.clientContext && context.clientContext.user;
-  if (!claims) {
+  if (!claims || (data.role==="host"&&!claims.app_metadata.roles.includes("user"))) {
    return {statusCode: 401};
   }
+
   var payload = {
     access_key: app_access_key,
     room_id: data.room_id,
@@ -22,6 +23,10 @@ exports.handler = async (event, context) => {
     nbf: Math.floor(Date.now() / 1000)
   };
   try {
+    const req= await clientQuery.query(q.Exists(q.Match(q.Index("user_match"), data.user_id)))
+    if(!req){
+      return responseObj(500, "User not found");
+    }
     const token = jwt.sign(
     payload,
     app_secret,

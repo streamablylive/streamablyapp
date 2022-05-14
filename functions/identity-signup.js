@@ -21,7 +21,17 @@ exports.handler = async (event) => {
         )
       )
       );
-    return {statusCode: 200};
+    const responseBody = {
+      app_metadata: {
+        ...data.user.app_metadata,
+        roles: ["user"],
+
+      }
+    };
+    return {
+      statusCode: 200,
+      body: JSON.stringify(responseBody)
+    };
   }catch (error) {
     console.log(error)
     return responseObj(500, error);

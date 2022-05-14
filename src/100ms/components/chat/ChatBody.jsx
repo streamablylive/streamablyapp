@@ -62,40 +62,47 @@ const MessageType = ({ roles, hasCurrentUserSent, receiver }) => {
 const URL_REGEX =
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
 
-const HIDDEN=
-  /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
-
-const Link = styled("a", {
-  color: "$brandDefault",
-  wordBreak: "break-all",
-  "&:hover": {
-    textDecoration: "underline",
-  },
-});
-
-const AnnotisedChat = ({ message }) => {
-  
+const AnnotisedChat = ({ msg }) => {
+  const message=msg.trim().split("||")
   return (
     <Fragment>
       {message
-        .trim()
-        .split(" ")
-        .map(part =>
-          URL_REGEX.test(part) ? (
-            <Link
-              href={part}
-              key={part}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {part}{" "}
-            </Link>
-          ) : (
-            `${part} `
-          )
+        .map((part,n) =>
+         ( n%2===0||(n+1===message.length))?
+            URL_REGEX.test(part) ? (
+              <a
+              className="text-sucess hover:underline break-words"
+                href={part}
+                key={part}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {part}{" "}
+              </a>
+            ) : (
+              `${part} `
+            )   
+          :
+            <div className="bg-black text-black hover:bg-transparent hover:text-white w-fit min-w-1">
+              {part.trim().split(" ").map((part) =>
+                URL_REGEX.test(part) ? (
+                  <a
+                    className="bg-transparent text-black hover:text-blue-600  hover:underline break-words"
+                    href={part}
+                    key={part}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {part}{" "}
+                  </a>
+                ) : (
+                  `${part} `
+                )
+                )}
+            </div>
         )}
     </Fragment>
-  );
+  )
 };
 
 const ChatMessage = React.memo(({ message }) => {
@@ -112,8 +119,8 @@ const ChatMessage = React.memo(({ message }) => {
   return (
     <div ref={ref} className={"w-full flex flex-col mt-2 "+(message.sender === localPeerId?"items-end ":"items-start")} key={message.time}>
       <div className="flex flex-col min-w-[15%] max-w-[80%]">
-        <p className=" my-2 text-white  p-2 bg-gray-900 rounded-lg">
-          <AnnotisedChat message={message.message} />
+        <p className=" my-2 text-white  p-2 bg-gray-900 rounded-lg flex">
+          <AnnotisedChat msg={message.message} />
         </p>
         <div className="flex justify-between">
           <div className="flex">
